@@ -1,0 +1,320 @@
+:root {
+  --cream:      #f3e7cb;
+  --cream-deep: #e9d6ac;
+  --paper:      #fbf3df;
+  --ink:        #34291b;
+  --ink-soft:   #6a5a42;
+
+  --mustard:    #e0a51f;
+  --mustard-dk: #b8821a;
+  --teal:       #1f6b66;
+  --teal-dk:    #134f4b;
+  --teal-lt:    #4f928c;
+  --orange:     #c0552a;
+  --orange-dk:  #9a4220;
+
+  --wood:       #7b5230;
+  --wood-dk:    #543620;
+  --wood-lt:    #946540;
+  --brass:      #cda86a;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: "Spectral", Georgia, serif;
+  color: var(--ink);
+  background-color: #e7d5b1;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.35), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(123,82,48,.035) 0 2px, transparent 2px 6px);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 56px 22px 70px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.store { width: 100%; max-width: 1080px; }
+
+/* ---------- Hanging sign ---------- */
+.sign-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 34px;
+}
+.strings { display: flex; gap: 240px; height: 26px; }
+.strings span {
+  width: 2px; height: 100%;
+  background: var(--ink);
+  opacity: .55;
+  transform-origin: top center;
+}
+.strings span:first-child { transform: rotate(7deg); }
+.strings span:last-child  { transform: rotate(-7deg); }
+
+.sign {
+  position: relative;
+  background: var(--teal);
+  border: 5px solid var(--mustard);
+  border-radius: 14px;
+  padding: 18px 60px 20px;
+  text-align: center;
+  box-shadow:
+    0 10px 0 var(--teal-dk),
+    0 14px 26px rgba(40,28,14,.35),
+    inset 0 0 0 2px rgba(255,255,255,.08);
+}
+.sign::before, .sign::after {
+  content: "";
+  position: absolute; top: -13px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--brass);
+  box-shadow: inset 0 -2px 2px rgba(0,0,0,.3);
+}
+.sign::before { left: 26px; }
+.sign::after  { right: 26px; }
+
+.sign h1 {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  color: var(--cream);
+  font-size: clamp(38px, 8vw, 70px);
+  line-height: .92;
+  margin: 0;
+  letter-spacing: .5px;
+  text-shadow: 2px 3px 0 var(--orange-dk), 4px 5px 0 rgba(0,0,0,.18);
+}
+
+/* ---------- Cabinet ---------- */
+.cabinet {
+  background: linear-gradient(180deg, var(--wood-lt), var(--wood) 18%, var(--wood-dk));
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 28px 50px rgba(40,24,10,.4), inset 0 2px 0 rgba(255,255,255,.18);
+}
+.cabinet-inner {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--wood-dk);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 44px, rgba(83,54,32,.05) 44px 46px),
+    linear-gradient(180deg, #f6ecd3, var(--cream) 55%, var(--cream-deep));
+}
+
+/* ---------- Shelf row ---------- */
+.shelf { position: relative; padding: 0 26px; }
+.goods {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 14px;
+  min-height: 218px;
+  padding: 30px 8px 6px;
+}
+.unit { display: flex; flex-direction: column; align-items: center; position: relative; }
+.unit .art { position: relative; filter: drop-shadow(0 8px 6px rgba(60,40,18,.26)); }
+
+/* Image placeholders */
+.slot {
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background-color: var(--cream-deep);
+  background-image: repeating-linear-gradient(45deg,
+    rgba(123,82,48,.11) 0 7px, rgba(123,82,48,.03) 7px 14px);
+}
+.slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slot .ph {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 10.5px; letter-spacing: .1em; text-transform: lowercase;
+  color: var(--ink-soft);
+  background: rgba(251,243,223,.72);
+  padding: 3px 8px; border-radius: 3px;
+}
+
+/* ---------- The plank ---------- */
+.plank {
+  position: relative;
+  height: 30px;
+  background:
+    repeating-linear-gradient(90deg, rgba(83,54,32,.10) 0 1px, transparent 1px 7px),
+    linear-gradient(180deg, var(--wood-lt), var(--wood) 42%, var(--wood-dk));
+  border-top: 2px solid var(--wood-lt);
+  box-shadow: inset 0 3px 5px rgba(255,255,255,.14), 0 5px 9px rgba(40,24,10,.34);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 14px;
+  padding: 0 30px;
+  z-index: 3;
+}
+.tag {
+  transform: translateY(13px);
+  background: var(--paper);
+  border: 1px solid var(--brass);
+  border-radius: 3px;
+  padding: 4px 12px 5px;
+  min-width: 70px;
+  text-align: center;
+  box-shadow: 0 3px 5px rgba(40,24,10,.28);
+  font-family: "Oswald", sans-serif;
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.tag .heart { color: var(--orange); margin-right: 5px; }
+
+/* ===================================================== */
+/*  RETRO OBJECTS                                        */
+/* ===================================================== */
+
+/* Standing book */
+.book { position: relative; padding-left: 16px; }
+.book .spine {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 18px;
+  background: linear-gradient(90deg, var(--teal-dk), var(--teal));
+  border-radius: 5px 0 0 5px;
+  box-shadow: inset -3px 0 4px rgba(0,0,0,.3);
+}
+.book .spine::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 16px; bottom: 16px;
+  background: repeating-linear-gradient(180deg, transparent 0 9px, rgba(224,165,31,.6) 9px 11px);
+}
+.book .cover { border-radius: 1px 6px 6px 1px; box-shadow: 2px 2px 0 rgba(0,0,0,.10); }
+
+/* Cereal / snack box */
+.cbox {
+  position: relative;
+  background: linear-gradient(180deg, var(--orange), var(--orange-dk));
+  border-radius: 6px 6px 4px 4px;
+  padding: 12px 9px 13px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.16);
+}
+.cbox::before {
+  content: ""; position: absolute; top: -7px; left: 9px; right: 9px; height: 9px;
+  background: inherit; filter: brightness(.82); border-radius: 3px 3px 0 0;
+}
+
+/* Framed picture */
+.frame {
+  background: linear-gradient(135deg, #e7c46f, #b78a3f 50%, #cda86a);
+  padding: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px var(--wood-dk), inset 0 0 0 2px rgba(255,255,255,.4);
+}
+.frame .mat { background: var(--paper); padding: 9px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+
+/* Vinyl sleeve */
+.vinyl { position: relative; }
+.vinyl .disc {
+  position: absolute; right: -24px; top: 14px;
+  width: 122px; height: 122px; border-radius: 50%;
+  background:
+    radial-gradient(circle, #d9d9d9 0 3px, var(--mustard) 3px 19px, #1d1d1d 20px 23px, #2a2a2a 23px);
+  box-shadow: 0 3px 6px rgba(0,0,0,.3);
+}
+.vinyl .sleeve { position: relative; z-index: 2; box-shadow: 3px 3px 0 rgba(0,0,0,.12); }
+
+/* Tin can (cylinder) */
+.can {
+  position: relative;
+  background: linear-gradient(90deg, #9aa19c, #eef1ee 26%, #c9cec9 52%, #8f968f 88%, #b6bbb6);
+  border-radius: 9px / 16px;
+  padding: 12px 0;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.16);
+}
+.can::before, .can::after {
+  content: ""; position: absolute; left: 2px; right: 2px; height: 9px;
+  background: #e2e6e2; border-radius: 50%;
+}
+.can::before { top: -2px; box-shadow: inset 0 -2px 2px rgba(0,0,0,.18); }
+.can::after  { bottom: -2px; box-shadow: inset 0 2px 2px rgba(0,0,0,.18); }
+.can .label { margin: 0 auto; }
+
+/* Glass jar */
+.gjar { display: flex; flex-direction: column; align-items: center; }
+.gjar .lid {
+  width: 84px; height: 18px;
+  background: linear-gradient(180deg, #e8b53b, var(--mustard-dk));
+  border-radius: 6px 6px 3px 3px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.3);
+}
+.gjar .ring { width: 90px; height: 9px; background: var(--mustard-dk); border-radius: 3px; }
+.gjar .body {
+  width: 116px; height: 116px; margin-top: -1px;
+  border-radius: 10px 10px 18px 18px;
+  background: linear-gradient(110deg, rgba(255,255,255,.30), rgba(120,160,150,.12) 50%, rgba(70,110,100,.18));
+  border: 2px solid rgba(255,255,255,.34);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 7px 0 12px rgba(255,255,255,.26), inset -7px 0 12px rgba(0,0,0,.10);
+}
+.gjar .label { position: relative; z-index: 2; }
+
+/* Bottle */
+.bottle { display: flex; flex-direction: column; align-items: center; }
+.bottle .cap {
+  width: 24px; height: 15px;
+  background: linear-gradient(180deg, var(--teal-lt), var(--teal-dk));
+  border-radius: 3px 3px 1px 1px;
+}
+.bottle .neck {
+  width: 22px; height: 30px;
+  background: linear-gradient(90deg, rgba(19,79,75,.55), rgba(79,146,140,.4) 50%, rgba(19,79,75,.55));
+}
+.bottle .body {
+  width: 78px; height: 138px; margin-top: -3px;
+  border-radius: 34px 34px 12px 12px;
+  background: linear-gradient(100deg, rgba(79,146,140,.5), rgba(31,107,102,.30) 50%, rgba(19,79,75,.5));
+  border: 2px solid rgba(255,255,255,.3);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 7px 0 12px rgba(255,255,255,.24), inset -5px 0 9px rgba(0,0,0,.10);
+}
+.bottle .label { position: relative; z-index: 2; }
+
+/* Round tin / hatbox */
+.rtin {
+  padding: 8px;
+  background: linear-gradient(135deg, #d7dcd6, #aab0aa 50%, #c6cbc6);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.4), inset 0 0 14px rgba(0,0,0,.12);
+}
+
+/* Polaroid */
+.polaroid {
+  background: #fffefb;
+  padding: 10px 10px 32px;
+  border-radius: 2px;
+  box-shadow: 0 7px 13px rgba(40,24,10,.26);
+  transform: rotate(-3deg);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--ink-soft);
+  font-family: "Spectral", serif;
+  font-style: italic;
+  font-size: 15px;
+}
+.footer .rule {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  color: var(--teal); margin-bottom: 8px;
+}
+.footer .rule::before, .footer .rule::after {
+  content: ""; height: 1px; width: 90px; background: currentColor; opacity: .5;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .goods { flex-wrap: wrap; justify-content: center; gap: 26px; min-height: 0; padding-top: 26px; }
+  .plank { flex-wrap: wrap; height: auto; padding: 8px 16px 22px; gap: 10px 16px; }
+  .tag { transform: none; }
+  .strings { gap: 150px; }
+}
