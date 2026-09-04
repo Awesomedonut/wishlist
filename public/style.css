@@ -14,7 +14,7 @@ html, body { margin: 0; padding: 0; }
 body {
   font-family: var(--font);
   color: var(--ink);
-  background: #b97a3f url("/cork.jpg") center / cover fixed;
+  background: #b97a3f url("cork.jpg") center / cover fixed;
   min-height: 100vh;
   padding: 40px 20px 60px;
 }
