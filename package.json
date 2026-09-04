@@ -1,0 +1,14 @@
+{
+  "name": "wishlist-board",
+  "version": "1.0.0",
+  "description": "A public wishlist board. Anyone can pin a wish with images, video, or audio.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js"
+  }
+}

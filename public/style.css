@@ -1,0 +1,162 @@
+:root {
+  --paper: #fbf3df;
+  --ink: #34291b;
+  --ink-soft: #6a5a42;
+  --accent: #c0552a;
+  --pin: #e0a51f;
+  --font: "Comic Sans MS", "Comic Sans", "Comic Neue", cursive;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: #b97a3f url("/cork.jpg") center / cover fixed;
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto 48px;
+  padding: 14px 24px 12px;
+  --tilt: 0deg;
+  background-image: repeating-linear-gradient(180deg, transparent 0 27px, rgba(31,107,102,.18) 27px 28px);
+}
+.title:hover { transform: none; }
+h1 {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 28px;
+  color: var(--ink);
+  text-align: center;
+  margin: 0;
+}
+
+/* ---------- Notes ---------- */
+.note {
+  position: relative;
+  background: var(--paper);
+  padding: 22px 18px 16px;
+  box-shadow: 0 8px 14px rgba(30,16,6,.4);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform .18s ease;
+}
+.note:hover { transform: rotate(0deg) translateY(-2px); z-index: 2; }
+.note .pin {
+  position: absolute; top: -9px; left: 50%; transform: translateX(-50%);
+  width: 18px; height: 18px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f0c04a, var(--pin) 45%, #b8821a);
+  box-shadow: 0 2px 3px rgba(0,0,0,.35);
+}
+.note-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  font-size: 13px; color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.who { font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.note-time { font-size: 12px; white-space: nowrap; }
+.note-text { font-size: 16px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.note-text a { color: var(--accent); }
+.note.fresh { animation: drop .35s cubic-bezier(.2,.9,.3,1.2); }
+@keyframes drop { from { opacity: 0; transform: translateY(-14px) rotate(var(--tilt, 0deg)); } to { opacity: 1; } }
+
+/* ---------- Embeds & media ---------- */
+.note-embeds, .note-media { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.note-embeds:empty, .note-media:empty { display: none; }
+.embed, .media { display: block; width: 100%; border: 0; background: #e9d6ac; }
+.embed.yt, .embed.vimeo, .embed.native:not(.audio) { aspect-ratio: 16 / 9; }
+.embed.tiktok { height: 580px; }
+.embed.spotify { height: 352px; }
+.embed.spotify.short { height: 152px; }
+.embed.soundcloud { height: 166px; }
+.embed.native.audio, .media.audio audio { width: 100%; height: 40px; }
+.embed.img img, .media.img img { display: block; width: 100%; height: auto; }
+.media.video { max-height: 460px; }
+.media.audio { padding: 8px; }
+.media.audio .audio-name { font-size: 12px; color: var(--ink-soft); margin-bottom: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.yt-poster { position: relative; padding: 0; cursor: pointer; overflow: hidden; aspect-ratio: 16 / 9; background: #111; }
+.yt-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.yt-poster .play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 56px; height: 40px; border-radius: 8px;
+  background: var(--accent); color: #fff; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ---------- Compose ---------- */
+.compose {
+  max-width: 520px;
+  margin: 0 auto 60px;
+  --tilt: -.6deg;
+}
+.compose:hover { transform: rotate(-.6deg); }
+.compose.dragging { outline: 3px dashed var(--accent); outline-offset: 6px; }
+.compose input, .compose textarea {
+  display: block; width: 100%;
+  font: inherit; font-size: 16px; color: var(--ink);
+  background: transparent; border: 0; outline: none; padding: 0;
+}
+.compose input { font-weight: 700; margin-bottom: 8px; }
+.compose input::placeholder { color: rgba(106,90,66,.5); font-weight: 400; }
+.compose textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
+
+.tray { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
+.tray-item { position: relative; width: 84px; }
+.tray-item.busy { opacity: .5; }
+.tray-preview { display: block; width: 84px; height: 84px; object-fit: cover; background: #e9d6ac; }
+.tray-preview.audio-glyph { display: flex; align-items: center; justify-content: center; font-size: 30px; color: var(--accent); }
+.tray-cap { font-size: 11px; color: var(--ink-soft); margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tray-rm {
+  position: absolute; top: -7px; right: -7px; z-index: 2;
+  width: 20px; height: 20px; border-radius: 50%; border: 0;
+  background: var(--accent); color: #fff; font: inherit; font-size: 14px; line-height: 1;
+  cursor: pointer;
+}
+
+.row { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.status { min-height: 18px; margin-top: 6px; font-size: 13px; color: var(--accent); }
+.status:empty { display: none; }
+
+.btn {
+  display: inline-block;
+  font: inherit; font-size: 16px; font-weight: 700;
+  color: var(--ink); background: transparent; border: 0; padding: 4px 10px;
+  cursor: pointer;
+}
+.btn { font-size: 22px; line-height: 1; }
+.btn:hover { transform: scale(1.15); }
+.btn:disabled { opacity: .5; cursor: default; }
+
+/* ---------- Board ---------- */
+.board {
+  max-width: 1080px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 34px 26px;
+  align-items: start;
+}
+.sentinel { height: 1px; }
+
+.credit {
+  text-align: center; margin-top: 60px;
+  font-size: 12px; color: var(--paper); opacity: .8;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.credit a { color: inherit; }
+
+@media (max-width: 720px) {
+  body { padding: 28px 14px 40px; }
+  .title { padding: 12px 16px 10px; margin-bottom: 32px; }
+  h1 { font-size: 26px; }
+  .board { grid-template-columns: 1fr; gap: 28px; }
+  .note, .note:hover, .compose:hover { transform: none; }
+  .embed.tiktok { height: 560px; }
+}

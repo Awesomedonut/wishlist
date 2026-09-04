@@ -1,0 +1,70 @@
+{
+  "exported": "2026-09-04",
+  "note": "Snapshot of the original static wishlist shelf before it became a public board.",
+  "shelves": [
+    {
+      "label": null,
+      "items": [
+        { "no": "01", "object": "book", "placeholder": "book cover" },
+        { "no": "02", "object": "framed photo", "placeholder": "a photo" },
+        { "no": "03", "object": "cereal box", "placeholder": "box front" }
+      ]
+    },
+    {
+      "label": null,
+      "items": [
+        { "no": "04", "object": "vinyl", "placeholder": "album art" },
+        { "no": "05", "object": "bottle", "placeholder": "label" },
+        { "no": "06", "object": "tin can", "placeholder": "can label" }
+      ]
+    },
+    {
+      "label": null,
+      "items": [
+        { "no": "07", "object": "glass jar", "placeholder": "label" },
+        { "no": "08", "object": "round tin", "placeholder": "tin lid" },
+        { "no": "09", "object": "polaroid", "placeholder": "snapshot" }
+      ]
+    },
+    {
+      "label": "animation memes",
+      "items": [
+        {
+          "no": "10",
+          "object": "retro tv",
+          "title": "Tell Me",
+          "subtitle": "Wonder Girls",
+          "links": [
+            "https://www.tiktok.com/@maryijoh7/video/7616828618861251862",
+            "https://www.tiktok.com/@rebornedliu/video/7578660389458677022",
+            "https://www.tiktok.com/@turatoise/video/7595215424732564754",
+            "https://www.tiktok.com/@ohgloomyy/video/7538030205663759623",
+            "https://www.tiktok.com/@careammmm_/video/7608932168672267538",
+            "https://www.tiktok.com/@famiblazee/video/7621072443217677599",
+            "https://www.youtube.com/shorts/7Jlv6fFn56o",
+            "https://www.youtube.com/watch?v=QaRRIV67rrw",
+            "https://www.youtube.com/watch?v=n7j2eWmZ44Y"
+          ]
+        },
+        {
+          "no": "11",
+          "object": "retro tv",
+          "title": "I Am The Man",
+          "links": [
+            "https://www.youtube.com/watch?v=BWnm8ZynO2Q",
+            "https://youtu.be/TbLzBI5io9Y"
+          ]
+        },
+        {
+          "no": "12",
+          "object": "retro tv",
+          "title": "Colors",
+          "links": [
+            "https://www.youtube.com/watch?v=XE3NvaT_nvM"
+          ]
+        }
+      ]
+    }
+  ],
+  "footer": "everything I'm wishing for, all in one little shop"
+}

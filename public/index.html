@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wishlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XBJ1TWKYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9XBJ1TWKYV');
+    </script>
+</head>
+<body>
+
+  <div class="note title"><div class="pin"></div><h1>wishlist</h1></div>
+
+  <form id="compose" class="note compose" autocomplete="off">
+    <div class="pin"></div>
+    <input id="name" name="name" type="text" maxlength="40" placeholder="anon" spellcheck="false" />
+    <textarea id="text" name="text" rows="3" maxlength="2000"></textarea>
+    <div id="tray" class="tray" hidden></div>
+    <div class="row">
+      <label class="btn" for="file" title="add image, video or audio">📤
+        <input id="file" type="file" multiple accept="image/*,video/*,audio/*" hidden />
+      </label>
+      <button id="submit" type="submit" class="btn">📌</button>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </form>
+
+  <div id="board" class="board" aria-live="polite"></div>
+  <div id="sentinel" class="sentinel"></div>
+
+  <div class="credit">background img by <a href="https://unsplash.com/@sibilant?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Josephine Barham</a> on <a href="https://unsplash.com/photos/a-close-up-view-of-a-brown-surface-KsAo8ouBn8A?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Unsplash</a> &middot; Free to use under the Unsplash License</div>
+
+  <template id="note-tpl">
+    <article class="note">
+      <div class="pin"></div>
+      <div class="note-head">
+        <span class="who"></span>
+        <time class="note-time"></time>
+      </div>
+      <div class="note-text"></div>
+      <div class="note-embeds"></div>
+      <div class="note-media"></div>
+    </article>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
