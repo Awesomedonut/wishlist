@@ -135,7 +135,7 @@ function mediaJson(m) {
     mime: m.mime,
     size: m.size,
     name: m.original_name || null,
-    url: `/uploads/${m.id}.${m.ext}`,
+    url: `uploads/${m.id}.${m.ext}`,
   };
 }
 function wishesWithMedia(rows) {

@@ -76,7 +76,7 @@
     setStatus("");
 
     try {
-      const res = await fetch("/api/upload", {
+      const res = await fetch("api/upload", {
         method: "POST",
         headers: {
           "Content-Type": file.type,
@@ -207,7 +207,7 @@
     textInput.readOnly = true;
     setStatus("");
     try {
-      const res = await fetch("/api/wishes", {
+      const res = await fetch("api/wishes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, text, media: pending.map((p) => p.id) }),
@@ -536,7 +536,7 @@
     loading = true;
     try {
       const qs = oldestId ? `?before=${oldestId}` : "";
-      const res = await fetch(`/api/wishes${qs}`);
+      const res = await fetch(`api/wishes${qs}`);
       if (!res.ok) throw new Error(`couldn't load (${res.status})`);
       const data = await res.json();
       for (const w of data.wishes) {
